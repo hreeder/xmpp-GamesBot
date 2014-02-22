@@ -9,5 +9,7 @@ Each person will be asked to "buy in" to the game, with ISK (Virtual Currency fr
 
 Tech Stuff
 ==========
-SleekXMPP
-evelink
+Uses the following packages found within pip
+* dnspython
+* evelink
+* SleekXMPP
