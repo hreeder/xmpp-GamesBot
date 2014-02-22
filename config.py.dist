@@ -1,0 +1,12 @@
+xmpp = {
+    'jid' : 'bot@jabber.net',
+    'password' : 'password',
+    'muc' : 'muc@conference.jabber.net',
+    'nick' : 'GamesBot',
+    'trigger' : '.'
+}
+
+eveapi = {
+    'userid' : 12345,
+    'vcode' : ''
+}
