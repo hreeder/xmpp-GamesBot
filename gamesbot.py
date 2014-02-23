@@ -4,14 +4,18 @@ import sleekxmpp
 import logging
 from optparse import OptionParser
 
-#Command Modules
+# Command Modules
 import balance
+import rroulette as roulette
 
 # Fill a dict of our commands
 cmds = {
-    'balance' : balance.balance,
-    'deposit' : balance.deposit
+    'balance': balance.balance,
+    'deposit': balance.deposit,
+    'totals' : balance.totals,
+    'roulette': roulette.roulette(),
 }
+
 
 class GamesBot(sleekxmpp.ClientXMPP):
 
@@ -34,8 +38,15 @@ class GamesBot(sleekxmpp.ClientXMPP):
                 firstWord = msg['body'][1:].split(' ')[0]
             else:
                 firstWord = msg['body'][1:]
+            # Look for Help Command
+            if firstWord == "help":
+                helptext = "Available Commands:"
+                for cmd in cmds:
+                    helptext += "\n" + cmd
+                self.send_message(mto=msg['from'].bare,
+                                  mbody=helptext, mtype="groupchat")
             # Run the command, if it exists
-            if firstWord in cmds:
+            elif firstWord in cmds:
                 cmds[firstWord](self, msg)
 
 if __name__ == '__main__':

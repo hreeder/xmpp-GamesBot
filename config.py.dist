@@ -3,10 +3,18 @@ xmpp = {
     'password' : 'password',
     'muc' : 'muc@conference.jabber.net',
     'nick' : 'GamesBot',
-    'trigger' : '.'
+    'trigger' : '.',
+    'admins': [
+    	'sklullus_dromulus@whjew.net',
+    ]
 }
 
 eveapi = {
     'userid' : 12345,
     'vcode' : ''
+}
+
+roulette = {
+	'entry' : 5000000,
+	'max_players' : 2
 }
