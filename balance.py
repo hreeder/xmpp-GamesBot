@@ -53,9 +53,12 @@ def deposit(self, message):
         # Increment by 5. This is only temporary
         users[key] += amt
 
+    locale.setlocale(locale.LC_ALL, '')
+    amt = locale.format("%d", amt, grouping=True)
+
     # Tell user that increment has happened (this needs to be replaced with
     # 'deposit isk to this corporation, with this reason')
-    output = "%s: Depositing %d ISK into %s's account" % (
+    output = "%s: Depositing %s ISK into %s's account" % (
         message['from'].resource, amt, user)
     self.send_message(mto=message['from'].bare,
                       mbody=output, mtype="groupchat")
